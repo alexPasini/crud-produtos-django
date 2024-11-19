@@ -1,9 +1,12 @@
 from django.urls import path
-from .views import ProductView
+from .views import ProductView, GetProductByIdView, AddImageArrayToProduct
 
 urlpatterns = [
     path('', ProductView.as_view()),
-    path('/<int:pk>', ProductView.as_view()),
+    # get by id
+    path('<int:pk>/', GetProductByIdView.as_view()),
+    # add images to product
+    path('<int:pk>/images/', AddImageArrayToProduct.as_view())
 ]
 
 
