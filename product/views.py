@@ -14,7 +14,7 @@ class ProductView(APIView):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         print(serializer.data)
-        return Response({"products": serializer.data},
+        return Response(serializer.data,
                         status=status.HTTP_200_OK)
 
     def post(self, request):
